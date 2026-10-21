@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090e21">
+  <meta name="description" content="فكّر في عدد، احفظ رمزه، ودع البلورة السحرية تدهشك. تجربة عربية تفاعلية للطلاب لاكتشاف سحر الأرقام.">
+  <title>البلورة السحرية — اكتشف سحر الأرقام</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6Z"/><path d="m20 2 .7 2.3L23 5l-2.3.7L20 8l-.7-2.3L17 5l2.3-.7Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5Zm4 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5Zm5 5 6 6m0-6-6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v16m0-16C8 2 4 3 2 4v15c4-2 7-1 10 2 3-3 6-4 10-2V4c-4-2-7-1-10 1Z"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </defs></svg>
+  <div class="sky" aria-hidden="true"><div class="nebula nebula-one"></div><div class="nebula nebula-two"></div><div id="stars"></div></div>
+  <div class="site-shell">
+    <header class="header">
+      <a href="#" id="brand" class="brand" aria-label="البلورة السحرية، الصفحة الرئيسية">
+        <span class="brand-mark"><svg class="icon"><use href="#i-spark"/></svg></span>
+        <span><strong>البلورة السحرية<span class="brand-dot">.</span></strong><small>اكتشف سحر الأرقام</small></span>
+      </a>
+      <nav class="nav" aria-label="القائمة الرئيسية">
+        <button class="nav-link active" id="experience-nav">التجربة</button>
+        <button class="nav-link" id="help-nav">كيف نلعب؟</button>
+        <button class="nav-link teacher-link" id="teacher-nav"><svg class="icon"><use href="#i-book"/></svg> دليل المعلم</button>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-button" id="sound-toggle" aria-label="تشغيل المؤثرات الصوتية" aria-pressed="false" title="تشغيل الصوت"><svg class="icon"><use href="#i-mute"/></svg></button>
+        <span class="tool-separator"></span>
+        <button class="icon-button" id="fullscreen-toggle" aria-label="ملء الشاشة" title="ملء الشاشة"><svg class="icon"><use href="#i-full"/></svg></button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="welcome-view" class="view welcome-view" aria-labelledby="welcome-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="live-dot"></span> قليل من الحساب، كثير من الدهشة</div>
+            <h1 id="welcome-title">رقمٌ في بالك،<br>وسرٌّ في <span>البلورة.</span></h1>
+            <p class="hero-description">هل تستطيع البلورة معرفة ما تفكّر فيه؟<br>اختر عددًا في سرّك، واتبع الخطوات… وشاهد المفاجأة.</p>
+            <div class="hero-actions">
+              <button class="button button-primary" id="start-button"><svg class="icon"><use href="#i-spark"/></svg> لنبدأ السحر <svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+              <button class="button button-quiet" id="example-button">شاهد مثالًا <span class="circle-play">▶</span></button>
+            </div>
+            <div class="privacy-note"><svg class="icon"><use href="#i-eye"/></svg><span>لا تكتب رقمك. احتفظ به في ذهنك فقط.</span></div>
+          </div>
+          <div class="hero-art" aria-label="بلورة مضيئة بألوان سماوية وبنفسجية">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <span class="art-spark art-spark-one">✦</span><span class="art-spark art-spark-two">✧</span><span class="art-spark art-spark-three">+</span>
+            <div class="crystal-aura"></div>
+            <img class="hero-crystal" src="assets/crystal.png" width="1254" height="1254" alt="بلورة زجاجية مضيئة بداخلها مجرّة زرقاء وبنفسجية، على قاعدة ذهبية" fetchpriority="high">
+            <div class="floating-tag tag-one"><span class="tag-dot"></span> فكّر في عدد…</div>
+            <div class="floating-tag tag-two"><svg class="icon"><use href="#i-spark"/></svg> واترك الباقي للبلورة</div>
+            <div class="art-caption"><span></span> THE MAGIC IS IN THE NUMBERS <span></span></div>
+          </div>
+        </div>
+        <section class="steps-section" aria-labelledby="steps-title">
+          <div class="section-heading"><h2 id="steps-title">أربع خطوات إلى الدهشة</h2><span>كل ما تحتاجه… قليل من التركيز <svg class="icon"><use href="#i-spark"/></svg></span></div>
+          <div class="steps-grid">
+            <article class="step-card step-cyan"><div class="step-top"><span class="step-number">01</span><span class="step-illustration">23</span></div><h3>اختر عددًا</h3><p>عدد من منزلتين، من 10 إلى 99.<br>ولا تخبر أحدًا به.</p></article>
+            <article class="step-card step-purple"><div class="step-top"><span class="step-number">02</span><span class="step-illustration equation" dir="ltr">2 + 3</span></div><h3>اجمع رقميه</h3><p>اجمع رقم العشرات ورقم الآحاد.<br>مثلًا: <bdi>2 + 3 = 5</bdi></p></article>
+            <article class="step-card step-pink"><div class="step-top"><span class="step-number">03</span><span class="step-illustration equation" dir="ltr">23 − 5</span></div><h3>اطرح المجموع</h3><p>اطرح المجموع من عددك الأصلي.<br>مثلًا: <bdi>23 − 5 = 18</bdi></p></article>
+            <article class="step-card step-gold"><div class="step-top"><span class="step-number">04</span><svg class="step-illustration icon"><use href="#i-spark"/></svg></div><h3>احفظ الرمز</h3><p>ابحث عن ناتجك في جدول الرموز،<br>ثم دع البلورة تكشفه!</p></article>
+          </div>
+        </section>
+      </section>
+
+      <section id="game-view" class="view game-view" aria-labelledby="game-title" hidden>
+        <div class="game-heading">
+          <div><div class="eyebrow"><span class="live-dot"></span> الجولة <span id="round-number">01</span></div><h1 id="game-title" tabindex="-1">احفظ الرمز. <span>ولا تقله لأحد.</span></h1><p>ابحث عن ناتج حسابك في الجدول، وركّز على الرمز المجاور له.</p></div>
+          <button class="button button-outline compact" id="new-round-top"><svg class="icon"><use href="#i-reset"/></svg> جولة جديدة</button>
+        </div>
+        <div class="game-layout">
+          <div class="symbol-panel">
+            <div class="panel-heading"><div><span class="tiny-dot"></span> جدول الرموز</div><span>العدد <span class="thin-line"></span> الرمز</span></div>
+            <div id="symbol-grid" class="symbol-grid" role="list" aria-label="جدول الأعداد من صفر إلى تسعة وتسعين ورموزها"></div>
+            <div class="grid-footer"><span>ابحث بعينيك فقط؛ لا تحتاج إلى الضغط على الرمز.</span><button id="hide-pattern" hidden>إخفاء النمط</button></div>
+          </div>
+          <aside class="reveal-panel">
+            <div class="mini-steps"><span class="mini-step"><b>1</b> اختر عددًا</span><span class="mini-step"><b>2</b> اجمع رقميه</span><span class="mini-step"><b>3</b> اطرح</span></div>
+            <button class="crystal-button" id="orb-button" aria-label="اكشف الرمز الذي تفكر فيه"><div class="crystal-aura"></div><img src="assets/crystal.png" width="1254" height="1254" alt="اضغط على البلورة لكشف رمزك"><span class="orb-ring"></span></button>
+            <span class="small-eyebrow">لحظة الحقيقة</span><h2>هل حفظت رمزك؟</h2><p>ركّز عليه جيدًا، ثم اضغط<br>على البلورة أو على الزر أدناه.</p>
+            <button class="button button-primary reveal-button" id="reveal-button"><svg class="icon"><use href="#i-spark"/></svg> اكشفي رمزي</button>
+            <button class="text-button" id="game-help">أحتاج إلى تذكير بالخطوات</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span><svg class="icon"><use href="#i-spark"/></svg> مساحة للفضول، ولحظات الدهشة.</span><span class="footer-right">تجربة واحدة… وابتسامات كثيرة <span class="footer-star">✦</span></span></footer>
+  </div>
+
+  <dialog id="help-dialog" class="modal help-modal" aria-labelledby="help-title">
+    <button class="icon-button close-dialog" data-close aria-label="إغلاق"><svg class="icon"><use href="#i-close"/></svg></button>
+    <span class="modal-kicker">لنجرّب معًا</span><h2 id="help-title">الحكاية تبدأ بعدد.</h2><p class="modal-intro">نفترض أنك اخترت <strong>23</strong>. هذه هي الخطوات:</p>
+    <ol class="example-list"><li><span>1</span><div><h3>اجمع رقمي العدد</h3><p>رقم العشرات + رقم الآحاد</p></div><bdi>2 + 3 = <strong>5</strong></bdi></li><li><span>2</span><div><h3>اطرح المجموع من العدد</h3><p>العدد الذي اخترته − المجموع</p></div><bdi>23 − 5 = <strong>18</strong></bdi></li><li><span>3</span><div><h3>ابحث عن 18 في الجدول</h3><p>احفظ الرمز المجاور للعدد، ثم اضغط على البلورة.</p></div><svg class="icon example-spark"><use href="#i-spark"/></svg></li></ol>
+    <div class="tip"><svg class="icon"><use href="#i-eye"/></svg> هذه مجرد تجربة توضيحية. اختر عددًا مختلفًا في جولتك!</div>
+    <button class="button button-primary" id="help-start">فهمت، لنجرّب <svg class="icon"><use href="#i-arrow"/></svg></button>
+  </dialog>
+
+  <dialog id="result-dialog" class="modal result-modal" aria-labelledby="result-title">
+    <button class="icon-button close-dialog" data-close aria-label="إغلاق النتيجة"><svg class="icon"><use href="#i-close"/></svg></button>
+    <div id="reading-state" class="reading-state"><span class="modal-kicker">ركّز على الرمز…</span><div class="reading-orb"><img src="assets/crystal.png" alt="" width="1254" height="1254"></div><h2>البلورة تجمع خيوط الدهشة<span class="loading-dots">…</span></h2><div class="reading-progress"><span></span></div></div>
+    <div id="revealed-state" hidden><div class="modal-kicker">هل هذا ما كان في بالك؟</div><h2 id="result-title">رمزك هو…</h2><div class="result-symbol-wrap"><div class="result-halo"></div><div id="result-symbol"></div><span class="result-star one">✦</span><span class="result-star two">✧</span><span class="result-star three">✧</span></div><p class="result-label" id="result-label"></p><p class="result-subtitle">اختيارك سرّ… لكن رمزه وصل إلى البلورة!</p><button class="button button-primary" id="play-again"><svg class="icon"><use href="#i-reset"/></svg> لنجرب عددًا آخر</button><button class="text-button" id="back-to-board">العودة إلى جدول الرموز</button></div>
+  </dialog>
+
+  <dialog id="teacher-dialog" class="modal teacher-modal" aria-labelledby="teacher-title">
+    <button class="icon-button close-dialog" data-close aria-label="إغلاق دليل المعلم"><svg class="icon"><use href="#i-close"/></svg></button>
+    <span class="modal-kicker"><svg class="icon"><use href="#i-book"/></svg> دليل المعلم</span><h2 id="teacher-title">خلف ستار الدهشة</h2>
+    <div id="teacher-gate"><p class="modal-intro">ابدأ بالتجربة أمام الطلاب، ثم كرّرها بأعداد مختلفة. اسألهم: «ما الذي لاحظتموه؟ وهل نستطيع تفسير ما يحدث؟»</p><div class="tip teacher-tip">الخطوة التالية تكشف السر الرياضي. افتحها عندما يحين وقت النقاش.</div><button class="button button-primary" id="unlock-secret">اكشف السر الرياضي <svg class="icon"><use href="#i-eye"/></svg></button></div>
+    <div id="teacher-secret" hidden><p class="modal-intro">الناتج دائمًا أحد مضاعفات <strong>9</strong> من 9 إلى 81، وجميع هذه الأعداد تحمل الرمز نفسه في كل جولة.</p><div class="proof" dir="ltr"><span>n = 10a + b</span><span>n − (a + b) = 10a + b − a − b</span><strong>= 9a</strong></div><p class="teacher-explain">حيث <bdi>a</bdi> رقم العشرات و<bdi>b</bdi> رقم الآحاد. يختفي الآحاد، ويبقى تسعة أضعاف العشرات. ويتغيّر الرمز بين الجولات لتتجدّد الخدعة.</p><label class="number-demo" for="demo-number"><span>جرّب عددًا <small>من 10 إلى 99</small></span><input id="demo-number" type="number" inputmode="numeric" min="10" max="99" step="1" value="54" dir="ltr"></label><div id="demo-output" class="demo-output" aria-live="polite"></div><button class="button button-outline" id="show-pattern">أظهر النمط في جدول الرموز <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><div class="noscript">يرجى تفعيل JavaScript لتشغيل تجربة البلورة السحرية.</div></noscript>
+</body>
+</html>
